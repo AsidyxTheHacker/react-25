@@ -1,11 +1,12 @@
 import './App.css'
+import Accordion from './Components/Accordion/Accordion.jsx';
 
 function App() {
 
   return (
     <>
-      <div>
-        
+      <div className='App'>
+        <Accordion />
       </div>
     </>
   );
