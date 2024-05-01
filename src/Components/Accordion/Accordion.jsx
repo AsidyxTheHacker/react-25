@@ -5,7 +5,7 @@ import './Accordion.css';
 export default function Accordion() {
 
     const [selected, setSelected] = useState(null);
-    const [enableMultiSelect, setEnableMultiSelect] = useState(false);
+    const [enableMultiSelect, setEnableMultiSelect] = useState(true);
     const [multiple, setMultiple] = useState([]);
 
     function handleSingleSelection(getCurrentId) {
@@ -21,26 +21,34 @@ export default function Accordion() {
         } else {
             copyMultiple.splice(findIndexOfCurrentId, 1)
         };
-
         setMultiple(copyMultiple);
     };
 
-    let button = document.querySelector('.wrapper button');
-    if (!enableMultiSelect) {
-        button.textContent = 'Enable Multi-Selection';
-    } else if (enableMultiSelect) {
-        button.textContent = 'Disable Multi-Selection';
+    function textSwap() {
+        let button = document.querySelector('.wrapper button');
+        if (!enableMultiSelect) {
+            button.textContent = 'Multi-Select Enabled';
+        } else if (enableMultiSelect) {
+            button.textContent = 'Multi-Select Disabled';
+        };
     };
 
     return (
         <div className="wrapper">
-            <button onClick={() => setEnableMultiSelect(!enableMultiSelect)}>
-                Enable Multi-Selection
+            <button
+                onClick={
+                    () => {
+                        setEnableMultiSelect(!enableMultiSelect);
+                        textSwap();
+                    }
+                }>
+                Multi-Select Enabled
             </button>
             <div className="accordion">
                 {
                     data && data.length > 0 ?
                         data.map(dataItem => <div className="item"
+                            key={dataItem.id}
                             onClick={enableMultiSelect
                                 ? () => handleMultiSelection(dataItem.id)
                                 : () => handleSingleSelection(dataItem.id)}>
