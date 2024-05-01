@@ -1,0 +1,20 @@
+.star-rating {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.active {
+    color: gold;
+}
+
+.inactive {
+    color: rgb(22, 22, 22);
+}
+
+svg {
+    cursor: pointer;
+    transition: .1s;
+}
