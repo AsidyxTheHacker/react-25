@@ -41,10 +41,8 @@ export default function RandomColor() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontFamily: 'Arial',
-                width: "100vw",
                 height: "100vh",
                 gap: '20px',
-                padding: '40px',
                 background: color,
             }}>
             <button onClick={() => setTypeOfColor('hex')}>Create 'HEX' Color</button>
